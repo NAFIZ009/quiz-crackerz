@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 import img from '../../img/react-logo-b64b7471f0ebe5f7a9a281ba2f72b63a.png';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Topics from '../Topics/Topics';
 
 const Home = () => {
@@ -20,7 +20,10 @@ const Home = () => {
                         color:'#0d6efd'
                     }}>Quiz Station</strong> is a complete website where you can learn by read out blogs and test your self with the help of our quiz.
                     </p>
-                    <button className='btn btn-primary fw-bold'>Start</button>
+                    <button className='btn btn-primary fw-bold'><Link to="/topics" style={{
+                        textDecoration:'none',
+                        color:'white'
+                    }}>Start</Link></button>
                 </div>
                 <img src={img} alt="" className='animatedImg '/>
             </div>

@@ -20,6 +20,11 @@ function App() {
           path:'/topics',
           loader:loader,
           element:<Topics/>
+        },
+        {
+          path:'/topics/:id',
+          loader:loader,
+          element:<></>
         }
       ]
     }
