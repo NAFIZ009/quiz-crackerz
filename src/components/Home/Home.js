@@ -1,8 +1,11 @@
 import React from 'react';
 import './Home.css';
 import img from '../../img/react-logo-b64b7471f0ebe5f7a9a281ba2f72b63a.png';
+import { useLoaderData } from 'react-router-dom';
+import Topics from '../Topics/Topics';
 
 const Home = () => {
+    const topics=useLoaderData();
     return (
         <div className='row row-cols-1 row-cols-sm-2'>
             <div className="col-4 header">
@@ -19,10 +22,10 @@ const Home = () => {
                     </p>
                     <button className='btn btn-primary fw-bold'>Start</button>
                 </div>
-                <img src={img} alt="" className='animatedImg img-fluid'/>
+                <img src={img} alt="" className='animatedImg '/>
             </div>
             <div className="col-8">
-                
+                    <Topics topicsDaTa={topics} />
             </div>
         </div>
     );
