@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home/Home';
+import Questions from './components/Questions/Questions';
 import Topics from './components/Topics/Topics';
 import Main from './Layout/Main';
 import loader from './utilitis/loader';
@@ -24,7 +25,7 @@ function App() {
         {
           path:'/topics/:id',
           loader:loader,
-          element:<></>
+          element:<Questions/>
         }
       ]
     }
