@@ -5,7 +5,6 @@ import answerCheking from '../../utilitis/answerCheking';
 const Question = ({questions,index}) => {
     const {question,options,correctAnswer,id}=questions;
     const [check,setCheck]=useState(false);
-    // console.log(check)
     return (
         <div className="card mb-3">
             <div className="row g-0">
@@ -19,7 +18,7 @@ const Question = ({questions,index}) => {
                         options.map((option,i)=>{
                           return (
                             <div className='d-block'>
-                            <input type="radio" name="option"  id={index.toString()+i.toString()} onChange={(event)=>answerCheking(event,correctAnswer,setCheck)} value={option}/><label for={index.toString()+i.toString()}>{option}</label>
+                            <input type="radio" name="option" {...(check&&{disabled:true})} id={index.toString()+i.toString()} onChange={(event)=>answerCheking(event,correctAnswer,setCheck)} value={option}/><label for={index.toString()+i.toString()}>{option}</label>
                             </div>
                             )
                         })

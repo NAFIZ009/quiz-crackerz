@@ -2,7 +2,7 @@
 
 const loader = async({params}) => {
     if(params.id){
-        const data=await fetch('https://openapi.programming-hero.com/api/quiz/2');
+        const data=await fetch(`https://openapi.programming-hero.com/api/quiz/${params.id}`);
         const questions=await data.json();
         console.log(questions);
         return questions;
