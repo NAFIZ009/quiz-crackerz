@@ -20,10 +20,10 @@ const Home = () => {
                         color:'#0d6efd'
                     }}>Quiz Station</strong> is a complete website where you can learn by read out blogs and test your self with the help of our quiz.
                     </p>
-                    <button className='btn btn-primary fw-bold'><Link to="/topics" style={{
+                    <Link className='btn btn-primary w-25' to="/topics" style={{
                         textDecoration:'none',
                         color:'white'
-                    }}>Start</Link></button>
+                    }}>Start</Link>
                 </div>
                 <img src={img} alt="" className='animatedImg '/>
             </div>

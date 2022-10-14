@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const loader = async({params}) => {
     if(params.id){

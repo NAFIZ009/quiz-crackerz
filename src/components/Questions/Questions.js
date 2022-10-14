@@ -5,11 +5,12 @@ import Question from '../Question/Question';
 const Questions = () => {
     const questions=useLoaderData();
     const {data}=questions;
+    console.log(data.questions);
     return (
         <div className='pt-2'>
             <h1 className='text-dark'>{data.name}</h1>
             {
-                questions.questions.map(question=><Question key={question.id} questions={question}/>)
+                data.questions.map((question,i)=><Question key={question.id} questions={question} index={i}/>)
             }
         </div>
     );
