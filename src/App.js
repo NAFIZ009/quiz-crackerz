@@ -6,6 +6,7 @@ import Topics from './components/Topics/Topics';
 import Main from './Layout/Main';
 import loader from './utilitis/loader';
 import ErrorPage from './components/errorElement/ErrorPage';
+import Statictis from './components/Statictis/Statictis';
 
 function App() {
   const router=createBrowserRouter([
@@ -29,7 +30,9 @@ function App() {
           element:<Questions/>
         },
         {
-          
+          path:"/statictics",
+          loader:loader,
+          element:<Statictis/>
         }
       ]
     },
