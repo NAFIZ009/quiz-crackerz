@@ -1,12 +1,10 @@
-
-
 const answerCheking = (e,answer,setCheck) => {
     if(e.target.checked){
         if(e.target.value === answer){
-            e.target.parentElement.className='bg-success text-light';
+            e.target.parentElement.classList.add('text-success ');
             
         }else{
-            e.target.parentElement.className='bg-danger text-light';
+            e.target.parentElement.classList.add('text-danger');
             
         }
         setCheck(e.target.checked);

@@ -5,6 +5,7 @@ import Questions from './components/Questions/Questions';
 import Topics from './components/Topics/Topics';
 import Main from './Layout/Main';
 import loader from './utilitis/loader';
+import ErrorPage from './components/errorElement/ErrorPage';
 
 function App() {
   const router=createBrowserRouter([
@@ -26,8 +27,15 @@ function App() {
           path:'/topics/:id',
           loader:loader,
           element:<Questions/>
+        },
+        {
+          
         }
       ]
+    },
+    {
+      path:'*',
+      element:<ErrorPage/>
     }
   ]);
   return (
