@@ -8,7 +8,7 @@ const Topics = ({topicsDaTa}) => {
     return (
         <div className='d-flex flex-column justify-content-center px-5'>
             <h1 className='py-2'>Quiz Topics</h1>
-            <div className="row row-cols-2 row-cols-md-3 g-4 justify-content-center">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
             
                 {
                     topics.data.map(topic=><Topic topic={topic} key={topic.id}/>)

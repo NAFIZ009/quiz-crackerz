@@ -7,14 +7,15 @@ const Question = ({questions,index,setAnswerBoard}) => {
     const [showCorrectAnswer,setShowCorrectAnswer]=useState(false);
     let correctAnswerIndex=options.findIndex(opt=> opt===correctAnswer);
     return (
-        <div className="card mb-3">
+        <div className="card border-0 mb-3">
             <div className="row g-0">
-              <div className="col-md-5 p-5 border-end border-primary">
+              <div className="col-md-5 p-5 border rounded-1 border-primary">
                 <h3>
+                  {index+1}. 
                   {question.includes('<p>')?question.slice(3,-4):question}
                 </h3>
               </div>
-              <div className="col-md-7 d-flex pt-3">
+              <div className="col-md-7 d-flex pt-3 border border-info rounded-1">
                 <div className="card-body d-flex justify-content-center" >
                     <form className='d-flex flex-column align-items-center justify-content-center gap-3 py-2'>
                     <button onClick={(e)=>{

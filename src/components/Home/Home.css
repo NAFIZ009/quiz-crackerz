@@ -4,8 +4,8 @@
     --nav:80px;
 }
 .header{
-    height: calc(var(--height) - var(--nav));
     position: relative;
+    overflow: hidden;
 }
 .animatedImg{
     transform: rotate(0deg);
@@ -56,3 +56,28 @@
 .banner p{
     color:#333533
 }
+@media screen and (max-width: 995px) {
+    .header{
+        height: 600px;
+    }
+    .animatedImg{
+        width: 60%;
+        left: 20%;
+        top: 5%;
+    }
+}
+@media screen and (max-width: 430px) {
+    .animatedImg {
+        width: 80%;
+        left: 10%;
+        top: 18%;
+    }
+}
+/* @media screen and (max-width: 995px){
+    .animatedImg {
+        width: 70%;
+        left: 15%;
+        top: 25%;
+    } 
+    
+} */
