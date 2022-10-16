@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import answerCheking from '../../utilitis/answerCheking';
 
-const Question = ({questions,index}) => {
+const Question = ({questions,index,setAnswerBoard}) => {
     const {question,options,correctAnswer}=questions;
     const [check,setCheck]=useState(false);
     const [showCorrectAnswer,setShowCorrectAnswer]=useState(false);
@@ -21,6 +21,7 @@ const Question = ({questions,index}) => {
                       e.preventDefault();
                       setShowCorrectAnswer(true);
                       setCheck(true);
+                      setAnswerBoard(prev=>{return {...prev,AnswerOpened:prev.AnswerOpened+1}})
                     }} {...(check&&{disabled:true})} className='btn btn-danger' style={{
                       position: 'absolute',
                       top:'2px',
@@ -30,7 +31,7 @@ const Question = ({questions,index}) => {
                         options.map((option,i)=>{
                           return (
                             <div className={`fw-bold fs-5 d-flex align-items-baseline ${check&&correctAnswerIndex===i &&'text-success'} ${showCorrectAnswer&&correctAnswerIndex===i &&'text-success'}`}>
-                            <input type="radio" className='me-2' name="option" {...(check&&{disabled:true})} id={index.toString()+i.toString()} onChange={(event)=>answerCheking(event,correctAnswer,setCheck)} value={option}/><label for={index.toString()+i.toString()}>{option}</label>
+                            <input type="radio" className='me-2' name="option" {...(check&&{disabled:true})} id={index.toString()+i.toString()} onChange={(event)=>answerCheking(event,correctAnswer,setCheck,setAnswerBoard)} value={option}/><label for={index.toString()+i.toString()}>{option}</label>
                             </div>
                             )
                         })
