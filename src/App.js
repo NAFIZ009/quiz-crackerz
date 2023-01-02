@@ -11,6 +11,7 @@ import Blogs from './components/Blogs/Blogs';
 import { AuthContext } from './Context/AuthContext';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import ProtectedRoute from './Layout/ProtectedRoute';
 
 function App() {
   const router=createBrowserRouter([
@@ -31,7 +32,7 @@ function App() {
         {
           path:'/topics/:id',
           loader:loader,
-          element:<Questions/>
+          element:<ProtectedRoute><Questions/></ProtectedRoute>
         },
         {
           path:"/statictics",

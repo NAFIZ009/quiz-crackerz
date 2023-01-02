@@ -1,16 +1,18 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/AuthContext';
 
 const Login = () => {
     const {login,getUser}=useContext(Context);
     const navigate=useNavigate();
+    const location=useLocation();
     const onSubmit = e => {
         e.preventDefault();
         const form=e.target;
         const email=form.email.value;
         const password=form.password.value;
+        
         login(email,password)
         .then((user)=>{
             console.log(user);
@@ -27,7 +29,7 @@ const Login = () => {
                 localStorage.setItem('accessToken',accessToken);
                 getUser(email);
                 form.reset();
-                navigate('/topics');
+                navigate(location.state);
             })
         })
     };

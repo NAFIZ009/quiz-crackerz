@@ -12,10 +12,12 @@ const AuthContext = ({children}) => {
     const provider = new GoogleAuthProvider();
     //signup
     const register=(email,password)=>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password);
     };
     //login
     const login=(email,password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
     //google login
