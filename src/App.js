@@ -8,6 +8,9 @@ import loader from './utilitis/loader';
 import ErrorPage from './components/errorElement/ErrorPage';
 import Statictis from './components/Statictis/Statictis';
 import Blogs from './components/Blogs/Blogs';
+import { AuthContext } from './Context/AuthContext';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 
 function App() {
   const router=createBrowserRouter([
@@ -38,6 +41,14 @@ function App() {
         {
           path:"/blogs",
           element:<Blogs/>
+        },
+        {
+          path:"/login",
+          element:<Login/>
+        },
+        {
+          path:"/signup",
+          element:<Signup/>
         }
       ]
     },
@@ -46,9 +57,13 @@ function App() {
       element:<ErrorPage/>
     }
   ]);
+  
   return (
     <div className="App">
+      <AuthContext>
       <RouterProvider router={router}/>
+      </AuthContext>
+      
     </div>
   );
 }
