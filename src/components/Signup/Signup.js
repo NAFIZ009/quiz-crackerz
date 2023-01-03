@@ -1,11 +1,12 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/AuthContext';
 
 const Signup = () => {
     const {register,setName,getUser}=useContext(Context);
     const navigate=useNavigate();
+    const location=useLocation();
     const onSubmit = e => {
         e.preventDefault();
         const form=e.target;
@@ -28,7 +29,7 @@ const Signup = () => {
                 getUser(email);
                 setName(name).then(()=>{
                     form.reset();
-                    navigate('/topics');
+                    navigate(location.state||'/topics');
                 });
             })
         })

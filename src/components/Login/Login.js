@@ -29,8 +29,11 @@ const Login = () => {
                 localStorage.setItem('accessToken',accessToken);
                 getUser(email);
                 form.reset();
-                navigate(location.state);
+                navigate(location.state||'/topics');
             })
+        })
+        .catch(err=>{
+            console.log(err);
         })
     };
     return (

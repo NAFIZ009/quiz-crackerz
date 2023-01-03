@@ -22,7 +22,7 @@ const Question = ({questions,index,setAnswerBoard}) => {
                       e.preventDefault();
                       setShowCorrectAnswer(true);
                       setCheck(true);
-                      setAnswerBoard(prev=>{return {...prev,AnswerOpened:prev.AnswerOpened+1}})
+                      setAnswerBoard(prev=>{return {...prev,AnswerOpened:prev.AnswerOpened+1,answered:prev.answered+1}})
                     }} {...(check&&{disabled:true})} className='btn btn-danger' style={{
                       position: 'absolute',
                       top:'2px',

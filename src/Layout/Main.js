@@ -14,7 +14,6 @@ const Main = () => {
             <Navbar/>
             {
                 loading? <Spinner/>:<Outlet/>
-
             }
             <Footer/>
         </div>

@@ -18,7 +18,10 @@ const AuthContext = ({children}) => {
     //login
     const login=(email,password)=>{
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(auth, email, password)
+        .catch(err=>{
+            setLoading(false);
+        })
     };
     //google login
     const google=()=>{

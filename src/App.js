@@ -12,6 +12,7 @@ import { AuthContext } from './Context/AuthContext';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import ProtectedRoute from './Layout/ProtectedRoute';
+import ResultPage from './components/ResultPage/ResultPage';
 
 function App() {
   const router=createBrowserRouter([
@@ -35,9 +36,11 @@ function App() {
           element:<ProtectedRoute><Questions/></ProtectedRoute>
         },
         {
-          path:"/statictics",
-          loader:loader,
-          element:<Statictis/>
+          path:"/statictics/:email",
+          element:<Statictis/>,
+          loader:({params})=>{
+           return fetch(`http://localhost:5000/result/${params.email}`)
+          }
         },
         {
           path:"/blogs",
@@ -50,6 +53,15 @@ function App() {
         {
           path:"/signup",
           element:<Signup/>
+        },
+        {
+          path:'/result/:id',
+          element:<ResultPage></ResultPage>,
+          loader:({params})=>{
+            const {id}=params;
+            return fetch(`http://localhost:5000/IndResult/${id}`)
+            
+          }
         }
       ]
     },

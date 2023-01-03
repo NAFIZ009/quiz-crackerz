@@ -26,7 +26,7 @@ const Navbar = () => {
         }
         <Link to='blogs'>Blog</Link>
         {
-          !loading&&user?.uid&&<Link className='text-primary fw-bold fs-6 shadow-sm rounded py-0 px-1 '>{user.userInfo?.name}</Link>
+          !loading&&user?.uid&&<Link className='text-primary fw-bold fs-6 shadow-sm rounded py-0 px-1 ' to={`/statictics/${user.email}`}>{user.userInfo?.name}</Link>
         }
         {
           !loading&&user?.uid?<><Link onClick={()=>logOut()}>LogOut</Link></>
