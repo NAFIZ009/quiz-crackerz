@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/AuthContext';
 import Question from '../Question/Question';
 import { format } from 'date-fns';
+import { useEffect } from 'react';
 
 const Questions = () => {
     const navigate=useNavigate();
@@ -17,31 +18,33 @@ const Questions = () => {
     
     const {data}=questions;
 
-    if(answerBoard.answered===data.questions.length){
-        const date=new Date();
-        fetch(`http://localhost:5000/result/${user.email}`,{
-            method:'POST',
-            headers:{
-                "content-type": "application/json",
-            },
-            body:JSON.stringify({
-                logo:data.logo,
-                email:user.email,
-                quizName:data.name,
-                RightAnswer:answerBoard.RightAnswer,
-                WrongAnswer:answerBoard.WrongAnswer,
-                AnswerOpened:answerBoard.AnswerOpened,
-                date:format(date,"PP")
+    useEffect(()=>{
+        if(answerBoard.answered===data.questions.length){
+            const date=new Date();
+            fetch(`http://localhost:5000/result/${user.email}`,{
+                method:'POST',
+                headers:{
+                    "content-type": "application/json",
+                },
+                body:JSON.stringify({
+                    logo:data.logo,
+                    email:user.email,
+                    quizName:data.name,
+                    RightAnswer:answerBoard.RightAnswer,
+                    WrongAnswer:answerBoard.WrongAnswer,
+                    AnswerOpened:answerBoard.AnswerOpened,
+                    date:format(date,"PP")
+                })
             })
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            const {status,result}=data;
-            if(status){
-                navigate(`/result/${result.insertedId}`);
-            }
-        });
-    }
+            .then(res=>res.json())
+            .then(data=>{
+                const {status,result}=data;
+                if(status){
+                    navigate(`/result/${result.insertedId}`);
+                }
+            });
+        }
+    },[answerBoard.answered]);
 
     return (
                     <div className='pt-2'>

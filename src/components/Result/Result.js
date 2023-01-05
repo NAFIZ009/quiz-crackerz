@@ -1,12 +1,10 @@
 import React from 'react';
 
 const Result = ({result}) => {
-    const [data]=result;
-    console.log(data);
-    const {logo,quizName,date,email,RightAnswer,WrongAnswer,AnswerOpened  }=data;
+    const {logo,quizName,date,email,RightAnswer,WrongAnswer,AnswerOpened  }=result;
     return (
         <div className=' w-100'>
-        <h1 className='mt-1'>Result View</h1>
+        
         <div class="card mb-3 mx-auto my-5 shadow" style={{maxWidth: '540px'}}>
         <div class="row g-0">
           <div class="col-md-4">

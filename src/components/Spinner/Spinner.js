@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Spinner = () => {
     const style={
         width: '100%',
-        height:"100%",
+        minHeight:"100%",
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

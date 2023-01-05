@@ -1,5 +1,5 @@
 import React, { createContext, useState,useEffect } from 'react';
-import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword ,updateProfile,onAuthStateChanged,signOut, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword ,updateProfile,onAuthStateChanged,signOut, GoogleAuthProvider, signInWithPopup,deleteUser,reauthenticateWithCredential,EmailAuthProvider} from "firebase/auth";
 import app from '../firebase.config';
 
 
@@ -57,10 +57,46 @@ const AuthContext = ({children}) => {
         
     }
 
+    //reauth
+    const reauth=(email,password)=>{
+        const user = auth.currentUser;
+
+        // TODO(you): prompt the user to re-provide their sign-in credentials
+        const credential = EmailAuthProvider.credential(email,password);
+
+       return reauthenticateWithCredential(user, credential)
+       .then(() => {
+        console.log("authenticated")
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+    
+    //delete account
+    const deleteAccount=(email)=>{
+        setLoading(true);
+        const user = auth.currentUser;
+        return deleteUser(user).then(() => {
+            fetch(`http://localhost:5000/user/delete/${email}`,{
+            method:'delete'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                setLoading(false);
+            })
+        }).catch((error) => {
+        console.log(error);
+        setLoading(false);
+        })
+    };
+
+
+
 
     useEffect(()=>{
+        
         onAuthStateChanged(auth,userInfo=>{
-                
+            console.log(auth.currentUser);
             // if(userInfo){
                 console.log(userInfo)
                 setUser(userInfo);
@@ -80,7 +116,7 @@ const AuthContext = ({children}) => {
     },[]);
 
 
-    const value={user,setUser,register,login,setName,logOut,loading,google,getUser};
+    const value={user,setUser,register,login,setName,logOut,loading,google,getUser,reauth,deleteAccount};
 
     return <Context.Provider value={value}>{children}</Context.Provider>
 };

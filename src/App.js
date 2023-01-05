@@ -13,6 +13,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import ProtectedRoute from './Layout/ProtectedRoute';
 import ResultPage from './components/ResultPage/ResultPage';
+import DeleteAccount from './components/DeleteAccount/DeleteAccount';
 
 function App() {
   const router=createBrowserRouter([
@@ -62,6 +63,10 @@ function App() {
             return fetch(`http://localhost:5000/IndResult/${id}`)
             
           }
+        },
+        {
+          path:'/deleteAccount',
+          element:<DeleteAccount/>
         }
       ]
     },
