@@ -2,8 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
-import CollapsibleExample from '../components/NavBar/Navbar';
-import Navbar from '../components/NavBar/Navbar';
+import NavBar from '../components/NavBar/Navbar';
 import Spinner from '../components/Spinner/Spinner';
 import { Context } from '../Context/AuthContext';
 
@@ -12,13 +11,15 @@ const Main = () => {
     console.log(loading);
     return (
         <div>
-           { 
-            // <Navbar/>
+        <NavBar/>
+        <div style={{
+            minHeight:"100vh"
+        }}>
+        {
+            loading? <Spinner/>:<Outlet/>
         }
-        <CollapsibleExample/>
-            {
-                loading? <Spinner/>:<Outlet/>
-            }
+        </div>
+            
             <Footer/>
         </div>
     );

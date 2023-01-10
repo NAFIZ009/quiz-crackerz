@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function CollapsibleExample() {
+function NavBar() {
   const {loading,user,logOut}=useContext(Context);
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -37,7 +37,7 @@ function CollapsibleExample() {
   );
 }
 
-export default CollapsibleExample;
+export default NavBar;
 
 
 
@@ -45,52 +45,4 @@ export default CollapsibleExample;
 
 
 
-// const NavbarCom = () => {
 
-//     const {loading,user,logOut}=useContext(Context);
-//     console.log(user)
-//     return (
-//         <nav className="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
-//   <div className="container d-flex align-items-baseline">
-//     <Link to='/' className='logo'>Quiz Station</Link>
-//     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-//       <span className="navbar-toggler-icon"></span>
-//     </button>
-//     <div className="collapse navbar-collapse" id="navbarNavAltMarkup" style={{
-//         flexGrow:0
-//     }}>
-//       <ul className="navbar-nav gap-5" style={{
-//         fontFamily: "Poppins, sans-serif"
-//       }}>
-//       <li class="nav-item">
-//       <a class="nav-link active" aria-current="page" href="/">Home</a>
-//     </li>
-//     <li class="nav-item">
-//       <a class="nav-link" href="/">Features</a>
-//     </li>
-//     <li class="nav-item">
-//       <a class="nav-link" href="/">Pricing</a>
-//     </li>
-        
-//       </ul>
-//     </div>
-//   </div>
-// </nav>
-//     );
-// };
-// <Link to='/topics'>Topics</Link>
-//         { 
-//           // <Link to='/statictics'>Statictics</Link>
-//         }
-//         <Link to='blogs'>Blog</Link>
-        // {
-        //   !loading&&user?.uid&&<Link className='text-primary fw-bold fs-6 shadow-sm rounded py-0 px-1 ' to={`/statictics/${user.email}`}>{user.userInfo?.name}</Link>
-        // }
-        // {
-        //   !loading&&user?.uid?<><Link onClick={()=>logOut()}>LogOut</Link></>
-        //   :<>
-        //     <Link to='/login'>Log In</Link>
-        //     <Link to='/signup'>Sign Up</Link>
-        //   </>
-        // }
-// export default NavbarCom;
